@@ -1,5 +1,5 @@
 # Build stage
-FROM gradle:7.6-jdk11 as builder
+FROM gradle:7.6-jdk11 AS builder
 
 WORKDIR /app
 COPY . .
@@ -8,7 +8,7 @@ COPY . .
 RUN gradle shadowJar --no-daemon
 
 # Runtime stage
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:11-jre-jammy
 
 WORKDIR /app
 
